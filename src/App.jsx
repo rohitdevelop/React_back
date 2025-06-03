@@ -1,9 +1,13 @@
-import React, { useState } from "react";
-import "./app.css";
-
-const App = () => {
+import React, { useState,useEffect } from "react";
+ import UseEffect from "./UseEffect.jsx";
+ const App = () => {
   const [text, setText] = useState("");
   const [tasks, setTasks] = useState([]);
+
+  useEffect(()=>{
+    localStorage.setItem("tasks" ,JSON.stringify(tasks))
+ 
+  },[tasks])
 
   // Add task
   const btntask = () => {
@@ -25,11 +29,14 @@ const App = () => {
     setTasks(updatedTasks);
   };
 
-  return (
-    <>
-      <div className="bg-red-500 min-h-[400px] w-full max-w-md mx-auto p-8 mt-10 rounded-lg shadow-lg">
+
+
+   return (
+     <div>
+       {/* <UseEffect /> */}
+ <div className="bg-red-500 min-h-[400px] w-full max-w-md mx-auto p-8 mt-10 rounded-lg shadow-lg">
         <h1 className="text-2xl font-bold text-white mb-4">📝 ToDo List</h1>
-        <div className="flex gap-2 mb-4">
+         <div className="flex gap-2 mb-4">
           <input
             placeholder="Enter your task"
             type="text"
@@ -75,14 +82,14 @@ const App = () => {
           ))}
         </ul>
       </div>
-    </>
-  );
-};
-
-export default App;
+   
 
 
+     </div>
+   )
+ }
+ 
+ export default App
+ 
 
-
-
-// useEffect ki prectice krrr
+ 
