@@ -2,31 +2,32 @@ import React, { useState, useEffect } from "react";
 
 const UseEffect = () => {
   const [count, setCount] = useState(0);
-  const [secound, setSecounds] = useState(0);
+  const [seconds, setSeconds] = useState(0);
   const [isRunning, setIsRunning] = useState(false); 
 
-  function countbtn() {
+  const countbtn = () => {
     setCount(count + 1);
-  }
-  function secbtn() {
-    setIsRunning(true)
-  }
+  };
+
+  const secbtn = () => {
+    setIsRunning(true);
+  };
 
   useEffect(() => {
-    console.log(`counter change ${count}`);
+    console.log(`Counter changed: ${count}`);
   }, [count]);
 
   useEffect(() => {
-     if (isRunning) {
-         const interval = setInterval(() => {
-           console.log(`timer i runnig  `);
-     
-           setSecounds((e) => e + 1);
-         }, 1000);
-         return () => {
-           clearInterval(interval);
-           console.log(`stop the timer in `);
-         };
+    if (isRunning) {
+      const interval = setInterval(() => {
+        console.log("Timer is running...");
+        setSeconds((s) => s + 1);
+      }, 1000);
+
+      return () => {
+        clearInterval(interval);
+        console.log("Timer stopped.");
+      };
     }
   }, [isRunning]);
 
@@ -44,10 +45,13 @@ const UseEffect = () => {
       </button>
 
       <p className="text-lg text-gray-700">
-        Seconds: <span className="font-medium">{secound}</span>
+        Seconds: <span className="font-medium">{seconds}</span>
       </p>
 
-      <button onClick={secbtn} className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+      <button
+        onClick={secbtn}
+        className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300"
+      >
         Start Timer
       </button>
     </div>
