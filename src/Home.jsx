@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { UserContext } from "./App";
 
 const Home = () => {
-  const {editTask, tasks, text, setText, btntask, btnDelete, toggleComplete } = useContext(UserContext);
+  const {tasks, text, setText, btntask, btnDelete, toggleComplete } = useContext(UserContext);
 
   return (
     <div className="bg-red-500 min-h-[400px] w-full max-w-md mx-auto p-8 mt-10 rounded-lg shadow-lg">
