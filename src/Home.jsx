@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { UserContext } from "./App";
+import { Themecontext } from "./App";
 
 const Home = () => {
   const {tasks, text, setText, btntask, btnDelete, toggleComplete } = useContext(UserContext);
+  const {isClick} = useContext(Themecontext);
 
   return (
-    <div className="bg-red-500 min-h-[400px] w-full max-w-md mx-auto p-8 mt-10 rounded-lg shadow-lg">
+    <div className={`bg-red-500 min-h-[400px] w-full max-w-md mx-auto p-8 mt-10 rounded-lg shadow-lg ${isClick ? "bg-white text-black" : "bg-red-500 text-black"}`}>
       <h1 className="text-2xl font-bold text-white mb-4">📝 ToDo List</h1>
       <div className="flex gap-2 mb-4">
         <input

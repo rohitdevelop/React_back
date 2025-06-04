@@ -5,22 +5,29 @@ import UseContextComponent from "./UseContextComponent.jsx";
 import Navbar from "./Navbar.jsx";
 import Home from "./Home.jsx";
 
-// Create context
+// ✅ Create Contexts
 export const UserContext = createContext();
+export const Themecontext = createContext();
 
 const App = () => {
-  // ✅ Define task state
+  // ✅ Task state
   const [text, setText] = useState("");
   const [tasks, setTasks] = useState(() => {
     const saved = localStorage.getItem("tasks");
     return saved ? JSON.parse(saved) : [];
   });
 
+  // ✅ Theme state
+  const [isClick, setIsClick] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
+
+  // ✅ Save tasks to localStorage
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
-  // ✅ Define functions
+  // ✅ Task functions
   const btntask = () => {
     if (text.trim() === "") return;
     setTasks([...tasks, { text, completed: false }]);
@@ -37,24 +44,37 @@ const App = () => {
     );
     setTasks(updatedTasks);
   };
-const editTask = (index, newText) => {
-  const updatedTasks = tasks.map((task, i) =>
-    i === index ? { ...task, text: newText } : task
-  );
-  setTasks(updatedTasks);
-};
+
+  const editTask = (index, newText) => {
+    const updatedTasks = tasks.map((task, i) =>
+      i === index ? { ...task, text: newText } : task
+    );
+    setTasks(updatedTasks);
+  };
 
   return (
-    < >
-      <UserContext.Provider value={{editTask, tasks, text, setText, btntask, btnDelete, toggleComplete }}>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/useeffect" element={<UseEffect />} />
-          <Route path="/alltasks" element={<UseContextComponent />} />
-        </Routes>
+    <Themecontext.Provider value={{ isClick, setIsClick }}>
+      <UserContext.Provider
+        value={{
+          editTask,
+          tasks,
+          text,
+          setText,
+          btntask,
+          btnDelete,
+          toggleComplete,
+        }}
+      >
+        <div className={`min-h-screen ${isClick ? "bg-black text-white" : "bg-white text-black"} transition-colors duration-300`}>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/useeffect" element={<UseEffect />} />
+            <Route path="/alltasks" element={<UseContextComponent />} />
+          </Routes>
+        </div>
       </UserContext.Provider>
-    </ >
+    </Themecontext.Provider>
   );
 };
 
