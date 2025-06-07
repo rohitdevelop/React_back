@@ -4,6 +4,7 @@ import UseEffect from "./UseEffect.jsx";
 import UseContextComponent from "./UseContextComponent.jsx";
 import Navbar from "./Navbar.jsx";
 import Home from "./Home.jsx";
+import Useref from "./Useref.jsx";
 
 // ✅ Create Contexts
 export const UserContext = createContext();
@@ -17,6 +18,10 @@ const App = () => {
     return saved ? JSON.parse(saved) : [];
   });
 
+  function dltbtn() {
+setTasks([]);
+
+}
   // ✅ Theme state
   const [isClick, setIsClick] = useState(() => {
     return localStorage.getItem("theme") === "dark";
@@ -63,6 +68,7 @@ const App = () => {
           btntask,
           btnDelete,
           toggleComplete,
+          dltbtn,
         }}
       >
         <div className={`min-h-screen ${isClick ? "bg-black text-white" : "bg-white text-black"} transition-colors duration-300`}>
@@ -71,6 +77,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/useeffect" element={<UseEffect />} />
             <Route path="/alltasks" element={<UseContextComponent />} />
+            <Route path="/useRef" element={<Useref/>} />
           </Routes>
         </div>
       </UserContext.Provider>

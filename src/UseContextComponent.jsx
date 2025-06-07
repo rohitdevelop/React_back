@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { UserContext } from "./App";
 
 const UseContextComponent = () => {
-  const { tasks, editTask } = useContext(UserContext);
+  const { tasks, editTask,dltbtn } = useContext(UserContext);
   const [editIndex, setEditIndex] = useState(null);
   const [editText, setEditText] = useState("");
 
@@ -10,7 +10,7 @@ const UseContextComponent = () => {
     setEditIndex(index);
     setEditText(currentText);
   };
-
+ 
   const handleSave = () => {
     if (editText.trim() !== "") {
       editTask(editIndex, editText);
@@ -21,9 +21,16 @@ const UseContextComponent = () => {
 
   return (
     <div className="bg-white p-6 rounded-2xl shadow-lg text-center mt-10 max-w-md mx-auto border border-gray-200">
-      <p className="text-xl font-medium text-gray-700 mb-4">
-        You have <span className="font-bold text-blue-600">{tasks.length}</span> tasks.
-      </p>
+ <p className="text-sm text-gray-800 mb-4">
+  You have <span className="font-bold text-blue-600">{tasks.length}</span> tasks. 
+  <span 
+    className="ml-2 text-red-500 hover:text-red-700 cursor-pointer font-semibold transition duration-300"
+   onClick={dltbtn}
+  >
+    Delete All
+  </span>
+</p>
+
 
       <ul className="space-y-4">
         {tasks.map((task, index) => (

@@ -25,10 +25,22 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-800 p-4 flex justify-center space-x-8 shadow-md">
       <Link
+        to="/"
+        className="text-white hover:text-amber-400 font-semibold transition duration-300"
+      >
+        Home
+      </Link>
+      <Link
         to="/useEffect"
         className="text-white hover:text-amber-400 font-semibold transition duration-300"
       >
         useEffect
+      </Link>
+      <Link
+        to="/useRef"
+        className="text-white hover:text-amber-400 font-semibold transition duration-300"
+      >
+        useRef
       </Link>
       <Link
         to="/alltasks"

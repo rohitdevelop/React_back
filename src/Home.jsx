@@ -8,17 +8,20 @@ const Home = () => {
 
   return (
     <div className={`bg-red-500 min-h-[400px] w-full max-w-md mx-auto p-8 mt-10 rounded-lg shadow-lg ${isClick ? "bg-white text-black" : "bg-red-500 text-black"}`}>
-      <h1 className="text-2xl font-bold text-white mb-4">📝 ToDo List</h1>
+<h1 className={`text-2xl font-bold mb-4 ${isClick ? 'text-red-500' : 'text-black'}`}>
+  📝 ToDo List
+</h1>
+
       <div className="flex gap-2 mb-4">
         <input
           placeholder="Enter your task"
           type="text"
           value={text}
           onChange={(e) => setText(e.target.value)}
-          className="h-10 w-full px-2 rounded"
+          className="h-10 w-full px-2 rounded bg-amber-950 text-white"
         />
         <button
-          className="h-10 px-4 border-2 border-amber-500 hover:bg-amber-800 text-white rounded"
+          className="h-10 px-4 border-2 bg-amber-950 border-amber-500 hover:bg-amber-800 text-white rounded"
           onClick={btntask}
         >
           Add
