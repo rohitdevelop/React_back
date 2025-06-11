@@ -5,6 +5,7 @@ import UseContextComponent from "./UseContextComponent.jsx";
 import Navbar from "./Navbar.jsx";
 import Home from "./Home.jsx";
 import Useref from "./Useref.jsx";
+import Booking from "./Booking.jsx";
 
 // ✅ Create Contexts
 export const UserContext = createContext();
@@ -78,6 +79,7 @@ setTasks([]);
             <Route path="/useeffect" element={<UseEffect />} />
             <Route path="/alltasks" element={<UseContextComponent />} />
             <Route path="/useRef" element={<Useref/>} />
+            <Route path="/booking" element={<Booking />} />
           </Routes>
         </div>
       </UserContext.Provider>

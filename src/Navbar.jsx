@@ -48,6 +48,12 @@ const Navbar = () => {
       >
         UseContext
       </Link>
+      <Link
+        to="/booking"
+        className="text-white hover:text-amber-400 font-semibold transition duration-300"
+      >
+        Booking
+      </Link>
 
       <button
         onClick={handleClick}

@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "./App";
+import { Themecontext } from "./App";
 
 const UseContextComponent = () => {
   const { tasks, editTask,dltbtn } = useContext(UserContext);
+  const { isClick } = useContext(Themecontext);
   const [editIndex, setEditIndex] = useState(null);
   const [editText, setEditText] = useState("");
 
@@ -20,7 +22,8 @@ const UseContextComponent = () => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-2xl shadow-lg text-center mt-10 max-w-md mx-auto border border-gray-200">
+    <div className={` p-6 rounded-2xl shadow-lg text-center mt-10 max-w-md mx-auto border border-gray-200 ${isClick ? 'bg-green-400' : 'bg-white'}`}>
+ 
  <p className="text-sm text-gray-800 mb-4">
   You have <span className="font-bold text-blue-600">{tasks.length}</span> tasks. 
   <span 
