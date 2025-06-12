@@ -13,6 +13,7 @@ export const Themecontext = createContext();
 
 const App = () => {
   // ✅ Task state
+  const [name , setName ] = useState('')
   const [text, setText] = useState("");
   const [tasks, setTasks] = useState(() => {
     const saved = localStorage.getItem("tasks");
@@ -78,7 +79,7 @@ setTasks([]);
             <Route path="/" element={<Home />} />
             <Route path="/useeffect" element={<UseEffect />} />
             <Route path="/alltasks" element={<UseContextComponent />} />
-            <Route path="/useRef" element={<Useref/>} />
+            <Route path="/useRef" element={<Useref name={name} setname={setName}/>} />
             <Route path="/booking" element={<Booking />} />
           </Routes>
         </div>
