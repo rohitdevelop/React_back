@@ -1,5 +1,5 @@
-import React, { useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useContext } from "react";
+import { NavLink } from "react-router-dom";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { Themecontext } from "./App";
 
@@ -7,7 +7,7 @@ const Navbar = () => {
   const { isClick, setIsClick } = useContext(Themecontext);
 
   const handleClick = () => {
-    setIsClick(prev => !prev);
+    setIsClick((prev) => !prev);
   };
 
   useEffect(() => {
@@ -24,42 +24,80 @@ const Navbar = () => {
 
   return (
     <nav className="bg-gray-800 p-4 flex justify-center space-x-8 shadow-md">
-      <Link
+      <NavLink
         to="/"
-        className="text-white hover:text-amber-400 font-semibold transition duration-300"
+        className={({ isActive }) =>
+          isActive
+            ? "text-yellow-400 bg-white border-2 font-semibold transition duration-300 px-3 py-1 rounded"
+            : "text-white hover:text-amber-400 font-semibold transition duration-300"
+        }
       >
         Home
-      </Link>
-      <Link
+      </NavLink>
+
+      <NavLink
         to="/useEffect"
-        className="text-white hover:text-amber-400 font-semibold transition duration-300"
+        className={({ isActive }) =>
+          isActive
+            ? "text-yellow-400 bg-white border-2 font-semibold transition duration-300 px-3 py-1 rounded"
+            : "text-white hover:text-amber-400 font-semibold transition duration-300"
+        }
       >
         useEffect
-      </Link>
-      <Link
+      </NavLink>
+
+      <NavLink
         to="/useRef"
-        className="text-white hover:text-amber-400 font-semibold transition duration-300"
+        className={({ isActive }) =>
+          isActive
+            ? "text-yellow-400 bg-white border-2 font-semibold transition duration-300 px-3 py-1 rounded"
+            : "text-white hover:text-amber-400 font-semibold transition duration-300"
+        }
       >
         useRef
-      </Link>
-      <Link
+      </NavLink>
+
+      <NavLink
         to="/alltasks"
-        className="text-white hover:text-amber-400 font-semibold transition duration-300"
+        className={({ isActive }) =>
+          isActive
+            ? "text-yellow-400 bg-white border-2 font-semibold transition duration-300 px-3 py-1 rounded"
+            : "text-white hover:text-amber-400 font-semibold transition duration-300"
+        }
       >
         UseContext
-      </Link>
-      <Link
+      </NavLink>
+
+      <NavLink
         to="/booking"
-        className="text-white hover:text-amber-400 font-semibold transition duration-300"
+        className={({ isActive }) =>
+          isActive
+            ? "text-yellow-400 bg-white border-2 font-semibold transition duration-300 px-3 py-1 rounded"
+            : "text-white hover:text-amber-400 font-semibold transition duration-300"
+        }
       >
         Booking
-      </Link>
+      </NavLink>
+      <NavLink
+        to="/usememo"
+        className={({ isActive }) =>
+          isActive
+            ? "text-yellow-400 bg-white border-2 font-semibold transition duration-300 px-3 py-1 rounded"
+            : "text-white hover:text-amber-400 font-semibold transition duration-300"
+        }
+      >
+         Usememo
+      </NavLink>
 
       <button
         onClick={handleClick}
         className="flex items-center gap-2 text-black bg-white border-2 border-amber-400 rounded-md px-4 py-2 hover:text-amber-400 font-semibold transition duration-300"
       >
-        {isClick ? <FaSun className="text-yellow-400" /> : <FaMoon className="text-blue-500" />}
+        {isClick ? (
+          <FaSun className="text-yellow-400" />
+        ) : (
+          <FaMoon className="text-blue-500" />
+        )}
         {isClick ? "Light Mode" : "Dark Mode"}
       </button>
     </nav>
