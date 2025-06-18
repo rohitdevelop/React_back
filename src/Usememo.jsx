@@ -55,4 +55,4 @@ function conter() {
   );
 };
 
-export default Usememo;
+export default React.memo(Usememo);

@@ -7,6 +7,9 @@ import Home from "./Home.jsx";
 import Useref from "./Useref.jsx";
 import Booking from "./Booking.jsx";
 import Usememo from "./Usememo.jsx";
+import UseCallback from "./UseCallback.jsx";
+import Login from "./Login.jsx";
+import Signup from "./Signup.jsx";
 
 // ✅ Create Contexts
 export const UserContext = createContext();
@@ -83,6 +86,9 @@ setTasks([]);
             <Route path="/useRef" element={<Useref name={name} setname={setName}/>} />
             <Route path="/booking" element={<Booking />} />
             <Route path="/usememo" element={<Usememo />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/usecallback" element={< UseCallback naam={"khushi"}/>} />
           </Routes>
         </div>
       </UserContext.Provider>
