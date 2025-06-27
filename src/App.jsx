@@ -1,98 +1,33 @@
-import React, { useState, useEffect, createContext } from "react";
-import { Routes, Route } from "react-router-dom";
-import UseEffect from "./UseEffect.jsx";
-import UseContextComponent from "./UseContextComponent.jsx";
-import Navbar from "./Navbar.jsx";
-import Home from "./Home.jsx";
-import Useref from "./Useref.jsx";
-import Booking from "./Booking.jsx";
-import Usememo from "./Usememo.jsx";
-import UseCallback from "./UseCallback.jsx";
-import Login from "./Login.jsx";
-import Signup from "./Signup.jsx";
-
-// ✅ Create Contexts
-export const UserContext = createContext();
-export const Themecontext = createContext();
+import React, { useState } from "react";
 
 const App = () => {
-  // ✅ Task state
-  const [name , setName ] = useState('')
-  const [text, setText] = useState("");
-  const [tasks, setTasks] = useState(() => {
-    const saved = localStorage.getItem("tasks");
-    return saved ? JSON.parse(saved) : [];
-  });
-
-  function dltbtn() {
-setTasks([]);
-
-}
-  // ✅ Theme state
-  const [isClick, setIsClick] = useState(() => {
-    return localStorage.getItem("theme") === "dark";
-  });
-
-  // ✅ Save tasks to localStorage
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
-
-  // ✅ Task functions
-  const btntask = () => {
-    if (text.trim() === "") return;
-    setTasks([...tasks, { text, completed: false }]);
-    setText("");
-  };
-
-  const btnDelete = (index) => {
-    setTasks(tasks.filter((_, i) => i !== index));
-  };
-
-  const toggleComplete = (index) => {
-    const updatedTasks = tasks.map((task, i) =>
-      i === index ? { ...task, completed: !task.completed } : task
-    );
-    setTasks(updatedTasks);
-  };
-
-  const editTask = (index, newText) => {
-    const updatedTasks = tasks.map((task, i) =>
-      i === index ? { ...task, text: newText } : task
-    );
-    setTasks(updatedTasks);
-  };
+  const [count, setCount] = useState(0);
 
   return (
-    <Themecontext.Provider value={{ isClick, setIsClick }}>
-      <UserContext.Provider
-        value={{
-          editTask,
-          tasks,
-          text,
-          setText,
-          btntask,
-          btnDelete,
-          toggleComplete,
-          dltbtn,
-        }}
-      >
-        <div className={`min-h-screen ${isClick ? "bg-black text-white" : "bg-white text-black"} transition-colors duration-300`}>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/useeffect" element={<UseEffect />} />
-            <Route path="/alltasks" element={<UseContextComponent />} />
-            <Route path="/useRef" element={<Useref name={name} setname={setName}/>} />
-            <Route path="/booking" element={<Booking />} />
-            <Route path="/usememo" element={<Usememo />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/usecallback" element={< UseCallback naam={"khushi"}/>} />
-          </Routes>
-        </div>
-      </UserContext.Provider>
-    </Themecontext.Provider>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-purple-700 to-indigo-900 text-white">
+      <h1 className="text-4xl font-bold mb-6">Tailwind Counter</h1>
+      <p className="text-6xl font-semibold mb-8">{count}</p>
+      <div className="flex gap-4">
+        <button
+          onClick={() => setCount(count - 1)}
+          className="bg-red-500 hover:bg-red-600 px-6 py-3 rounded-lg text-white font-semibold shadow-md active:scale-95 transition"
+        >
+          Decrease
+        </button>
+        <button
+          onClick={() => setCount(0)}
+          className="bg-yellow-500 hover:bg-yellow-600 px-6 py-3 rounded-lg text-white font-semibold shadow-md active:scale-95 transition"
+        >
+          Reset
+        </button>
+        <button
+          onClick={() => setCount(count + 1)}
+          className="bg-green-500 hover:bg-green-600 px-6 py-3 rounded-lg text-white font-semibold shadow-md active:scale-95 transition"
+        >
+          Increase
+        </button>
+      </div>
+    </div>
   );
 };
 
