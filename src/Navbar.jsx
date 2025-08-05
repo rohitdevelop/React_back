@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = (props) => {
   const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem("token"); // check if user is logged in
 
@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-gray-900 text-white px-6 py-4 flex justify-between items-center shadow-md">
-      <h1 className="text-2xl font-bold">MyAuthApp</h1>
+      <h1 className="text-2xl font-bold"> {props.name}</h1>
 
       <div className="space-x-4">
         {isLoggedIn ? (

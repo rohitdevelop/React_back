@@ -7,7 +7,7 @@ import Shinup from "./components/Shinup";
 const App = () => {
   return (
     <>
-    <Navbar />
+    <Navbar name={"rohit singh"} />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
