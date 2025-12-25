@@ -1,22 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const App = () => {
   const [count, setCount] = useState(0);
-  const [text, setText] = useState("hello world");
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setText(`You clicked ${count} times`);
-    }, 3000);
-
-    return () => clearTimeout(timer); // cleanup to avoid overlaps
-  }, [count]); // run when count changes
 
   return (
-    <div className="bg-black text-white p-4">
-      <h1>{text}</h1>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
-      <p>Count: {count}</p>
+    <div className="text-center flex gap-10">
+      <h1 className="text-5xl font-extrabold ">{count}</h1>
+      <button
+        className="py-2 px-20 border-2 border-amber-800"
+        onClick={() => setCount(count + 1 )}
+      >
+        increse
+      </button>
+      <button
+        className="py-2 px-20 border-2 border-amber-800"
+        onClick={() => setCount(count - 1)}
+      >
+        decrec
+      </button>
+      <button
+        className="py-2 px-20 border-2 border-amber-800"
+        onClick={() => setCount(count + 5 ) }
+      >
+        jumo 5 time{" "}
+      </button>
     </div>
   );
 };
