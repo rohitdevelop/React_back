@@ -1,20 +1,23 @@
 import React, { useState } from "react";
 
 const Card = () => {
-  const [allusers, setAllusers] = useState([]);
-
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [role, setRole] = useState("");
   const [subject, setSebject] = useState("");
 
+  const localdeta = localStorage.getItem("all-users");
+
+const [allusers, setAllusers] = useState(
+  localdeta ? JSON.parse(localdeta) : []
+);
+
   function handlesubmit(e) {
     e.preventDefault();
-    let users = setAllusers((prev) => [
-      ...prev,
-      { name, description, role, subject },
-    ]);
+    let users = [...allusers, { name, description, role, subject }];
+    setAllusers(users);
 
+    localStorage.setItem("all-users", JSON.stringify(users));
     console.log(users);
     setName("");
     setRole("");

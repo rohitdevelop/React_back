@@ -1,0 +1,13 @@
+// .................................................localStorage
+localStorage.setItem('key' 'value') //to add
+localStorage.getItem('key')// to get the get Item
+localStorage.removeItem('key')// to remove pertivular key
+localStorage.clear('key')//to clear all storage
+
+
+
+
+
+// Cookies 1) access token 2) refresh token
+// Session storage
+// cache storage
