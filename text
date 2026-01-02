@@ -11,3 +11,14 @@ localStorage.clear('key')//to clear all storage
 // Cookies 1) access token 2) refresh token
 // Session storage
 // cache storage
+
+
+// ........................JSON parse
+let json = '{"name": "rohit","age": "20"}'
+let parse = JSON.parse(json)
+console.log(parse);// its it in now objects
+
+// ........................JSON stringify
+ let json = {name: "rohit",age: "20"}
+ let stringify = JSON.stringify(json)
+ console.log(stringify);// its it in now string
