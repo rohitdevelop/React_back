@@ -57,3 +57,16 @@
 // };
 
 // export default Login;
+
+
+import React from 'react'
+
+const Login = () => {
+  return (
+    <div>
+      login
+    </div>
+  )
+}
+
+export default Login

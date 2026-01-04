@@ -53,3 +53,15 @@
 // };
 
 // export default Signup;
+
+import React from 'react'
+
+const Shinup = () => {
+  return (
+    <div>
+      hello
+    </div>
+  )
+}
+
+export default Shinup
