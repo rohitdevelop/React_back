@@ -16,7 +16,7 @@ const Navbar = () => {
         <Link to={"/login"}>
           <li>LOGIN</li>
         </Link>
-        <Link to={"/Shinup"}>
+        <Link to={"/shinup/:userid"}>
           <li>SHINUP</li>
         </Link>
       </ul>

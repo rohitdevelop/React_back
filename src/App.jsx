@@ -34,6 +34,8 @@ import { Routes, Route } from "react-router-dom";
 import Card from "./components/Card";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
+import Shinup from "./components/Shinup";
+import Login from "./components/Login";
 const App = () => {
   return (
     <div>
@@ -42,6 +44,8 @@ const App = () => {
       <Routes>
         <Route path={"/"} element={<Home />} />
         <Route path={"/card"} element={<Card />} />
+        <Route path={"/login"} element={<Login />} />
+        <Route path={"/shinup/:userid"} element={<Shinup />} />
       </Routes>
     </div>
   );

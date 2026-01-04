@@ -54,14 +54,41 @@
 
 // export default Signup;
 
-import React from 'react'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Shinup = () => {
+const Home = () => {
+  const [userid, setUserid] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    if (userid.trim() === "") return;
+    navigate(`/shinup/${userid}`);
+  };
+
   return (
-    <div>
-      hello
-    </div>
-  )
-}
+    <div className="mt-32">
+      <input
+        type="text"
+        placeholder="Enter User ID"
+        value={userid}
+        onChange={(e) => setUserid(e.target.value)}
+        className="border p-2"
+      />
 
-export default Shinup
+      <button
+        onClick={handleSubmit}
+        className="ml-2 bg-blue-500 text-white px-4 py-2"
+      >
+        Go
+      </button>
+
+      <div className="">
+        <h1>hello {userid}</h1>
+      </div>
+    </div>
+  );
+};
+
+export default Home;
+

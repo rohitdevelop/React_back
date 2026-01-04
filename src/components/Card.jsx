@@ -24,9 +24,13 @@ const [allusers, setAllusers] = useState(
     setSebject("");
     setDescription("");
   }
-  function handleremove(index) {
-    setAllusers((prev) => prev.filter((_, i) => index !== i));
-  }
+function handleremove(index) {
+  const updatedUsers = allusers.filter((_, i) => i !== index);
+
+  setAllusers(updatedUsers);
+  localStorage.setItem("all-users", JSON.stringify(updatedUsers));
+}
+
   return (
     <>
       <div className="w-full h-[100%] bg-gray-900">

@@ -63,7 +63,7 @@ import React from 'react'
 
 const Login = () => {
   return (
-    <div>
+    <div className="mt-32">
       login
     </div>
   )
