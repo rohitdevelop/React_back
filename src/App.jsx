@@ -36,7 +36,10 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Shinup from "./components/Shinup";
 import Login from "./components/Login";
+import QueryParams from "./components/QueryParams";
 const App = () => {
+  
+  
   return (
     <div>
       <Navbar />
@@ -46,6 +49,7 @@ const App = () => {
         <Route path={"/card"} element={<Card />} />
         <Route path={"/login"} element={<Login />} />
         <Route path={"/shinup/:userid"} element={<Shinup />} />
+        <Route path={"/queryparams"} element={<QueryParams />} />
       </Routes>
     </div>
   );
