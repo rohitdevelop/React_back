@@ -25,14 +25,14 @@
 import React,{useContext} from 'react'
 import {usercontext} from "../context/UserContext";
 const Navbar = () => {
-  const user = useContext(usercontext)
-  console.log(user);
+  const [theme, setTheme] = useContext(usercontext)
+  // console.log(user);
   
   return (
-    <div className="w-full h-11 text-white bg-amber-800">
+    <div className="w-full h-11 text-white bg-amber-800 flex justify-between items-center">
       navbar {" "}
-      {user}
-  {/* {props.children} */}
+      {theme}
+      <button onClick={() => setTheme('dark')} className="px-1.5 bg-amber-600 font-bold text-white">toggle theme</button>
     </div>
   )
 }

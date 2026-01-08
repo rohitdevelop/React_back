@@ -1,11 +1,14 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import {usercontext} from '../context/UserContext'
+const Footer = () => {
+ const deta = useContext(usercontext)
 
-const Footer = (props) => {
-  console.log(props);
+  console.log(deta);
   
   return (
     <div className="w-full bg-amber-900 text-white h-11 absolute border-0">
-      Foooter
+      Foooter{" "}
+      {deta}
     </div>
   )
 }
