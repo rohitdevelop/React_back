@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { usercontext } from "../context/UserContext";
 const AllSection = () => {
-  const deta = useContext(usercontext);
+  const [theme] = useContext(usercontext);
 
   return (
-    <div className="bg-black text-amber-50 text-center w-full h-[90vh]">
+    <div className={`${theme == 'light'? 'bg-white text-black': 'bg-black text-white'} text-center w-full h-[90vh]`}>
       <h1>helo everuone</h1>
-      {deta}
+      {theme}
     </div>
   );
 };

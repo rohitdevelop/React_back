@@ -32,7 +32,7 @@ const Navbar = () => {
     <div className="w-full h-11 text-white bg-amber-800 flex justify-between items-center">
       navbar {" "}
       {theme}
-      <button onClick={() => setTheme('dark')} className="px-1.5 bg-amber-600 font-bold text-white">toggle theme</button>
+      <button onClick={() => setTheme(theme == "light"?"dark":"light")} className="px-1.5 bg-amber-600 font-bold text-white">toggle theme</button>
     </div>
   )
 }
