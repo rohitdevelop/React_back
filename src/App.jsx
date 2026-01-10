@@ -38,47 +38,67 @@
 // import Login from "./components/Login";
 // import QueryParams from "./components/QueryParams";
 // const App = () => {
-  
-  
-  //   return (
-    //     <div>
-    //       <Navbar />
-    //       <br />
-    //       <Routes>
-    //         <Route path={"/"} element={<Home />} />
-    //         <Route path={"/card"} element={<Card />} />
-    //         <Route path={"/login"} element={<Login />} />
-    //         <Route path={"/shinup/:userid"} element={<Shinup />} />
-    //         <Route path={"/queryparams"} element={<QueryParams />} />
-    //       </Routes>
-    //     </div>
-    //   );
-    // };
-    
-    // export default App;
-    
-    
-    import React from 'react'
-   import Navbar from "./components/Navbar";
-   import AllSection from "./components/AllSection";
-   import Footer from "./components/Footer";
+
+//   return (
+//     <div>
+//       <Navbar />
+//       <br />
+//       <Routes>
+//         <Route path={"/"} element={<Home />} />
+//         <Route path={"/card"} element={<Card />} />
+//         <Route path={"/login"} element={<Login />} />
+//         <Route path={"/shinup/:userid"} element={<Shinup />} />
+//         <Route path={"/queryparams"} element={<QueryParams />} />
+//       </Routes>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+//     import React from 'react'
+//    import Navbar from "./components/Navbar";
+//    import AllSection from "./components/AllSection";
+//    import Footer from "./components/Footer";
+// const App = () => {
+//   return (
+//     <div>
+//       <Navbar>
+//  <div>
+//   <section>
+//     <h1>hello </h1>
+//   </section>
+//  </div>
+//         </Navbar>
+
+//       <AllSection>
+//         <h1>hello re</h1>
+//         <h1>helluu re</h1>
+//       </AllSection>
+//       <Footer/>
+//     </div>
+//   )
+// }
+
+// export default App
+
+import React from "react";
+import Home from "./components/Home";
+import Products from "./components/Products";
+import ProductsDetails from "./components/ProductsDetails";
+import { Routes, Route } from "react-router-dom";
+
 const App = () => {
   return (
     <div>
-      <Navbar>
- <div>
-  <section>
-    <h1>hello </h1>
-  </section>
- </div>
-        </Navbar>
-      <AllSection>
-        <h1>hello re</h1>
-        <h1>helluu re</h1>
-      </AllSection>
-      <Footer/>
-    </div>
-  )
-}
+      <Routes>
 
-export default App
+        <Route path={'/'} element={<Home/>}/>
+        <Route path={'/products'} element={<Products/>}/>
+        <Route path={'/products/:productID'} element={<ProductsDetails/>}/>
+      </Routes>
+     </div>
+  );
+};
+
+export default App;
