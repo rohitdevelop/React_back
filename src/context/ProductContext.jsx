@@ -1,16 +1,16 @@
 import React, { createContext, useState, useEffect } from "react";
-import axios from "axios";
-
+ import {alldeta} from '../Api/productApi.js'
 export const ProductContextDeta = createContext();
+ const ProductContext = (props) => {
+ const [deta, setDeta] = useState([]);
 
-const ProductContext = (props) => {
-  const [deta, setdeta] = useState([]);
-  async function alldeta() {
-    let respose = await axios.get("https://fakestoreapi.com/products");
-    setdeta(respose.data);
-  }
+const productdeta = async () => {
+ let res = await alldeta()
+ setDeta(res)
+}
+
   useEffect(() => {
-    alldeta();
+    productdeta();
   }, []);
 
   return (
